@@ -36,23 +36,6 @@ class Installer
         $thisVendorDir = dirname(dirname(__DIR__));
         $vendorDir = dirname(dirname($thisVendorDir));
 
-        $io = $event->getIO();
-        if (self::copyElfidnerFiles($vendorDir)) {
-            $io->write('Yuicompressor files have been successfully copied');
-            return true;
-        }
-
-        throw new Exception('Could not copy files');
-        return false;
-    }
-
-
-    /**
-     * @throws \Exception
-     */
-    public static function copyElfidnerFiles($vendorDir)
-    {
-
         $yuicompressorDir = $vendorDir . DS . 'nervo' . DS . 'yuicompressor';
         $newDir = $vendorDir . DS . 'yuicompressor';
 
@@ -62,12 +45,13 @@ class Installer
 
         // copy files
         if (self::copyall($yuicompressorDir, $newDir)) {
+            $io = $event->getIO();
+            $io->write('Yuicompressor files have been successfully copied');
             return true;
         }
 
         throw new Exception('Can not copy files');
     }
-
 
     public static function copyall($src, $dst)
     {
