@@ -56,6 +56,10 @@ class Installer
         $yuicompressorDir = $vendorDir . DS . 'nervo' . DS . 'yuicompressor';
         $newDir = $vendorDir . DS . 'yuicompressor';
 
+        if (is_dir($newDir)) {
+            return true;
+        }
+
         // copy files
         if (self::copyall($yuicompressorDir, $newDir)) {
             return true;
