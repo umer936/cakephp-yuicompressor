@@ -1,8 +1,16 @@
 {
-    "name": "nervo/yuicompressor",
+    "name": "umer936/cakephp-asset-compress-yuicompressor",
     "description": "YUI Compressor is an open source tool that supports the compression of both JavaScript and CSS files. The JavaScript compression removes comments and white-spaces as well as obfuscates local variables using the smallest possible variable name. CSS compression is done using a regular-expression-based CSS minifier.",
     "keywords": ["java","yui"],
+    "type": "cakephp-plugin",
+    "require": {
+        "cakephp/cakephp": "^4.0",
+        "nervo/yuicompressor": "dev-master"
+    },
     "homepage": "https://github.com/yui/yuicompressor",
-    "license": "BSD-3-Clause",
-    "bin": ["yuicompressor.jar"]
+    "autoload": {
+        "psr-4": {
+            "CakephpAssetCompressYuicompressor\\": "src"
+        }
+    }
 }
