@@ -4,7 +4,7 @@ https://github.com/nervo/yuicompressor but puts it in the right place for https:
 # Installation 
 Add to composer.json
 
-```
+```json
 {
     ...
     "repositories": [
