@@ -5,7 +5,7 @@
     "type": "cakephp-plugin",
     "require": {
         "cakephp/cakephp": "^4.0",
-        "nervo/yuicompressor": "dev-master"
+        "nervo/yuicompressor": "@stable"
     },
     "homepage": "https://github.com/yui/yuicompressor",
     "autoload": {
@@ -13,5 +13,5 @@
             "CakephpAssetCompressYuicompressor\\": "src"
         }
     },
-    "version": "4.0.1"
+    "version": "4.0.2"
 }
