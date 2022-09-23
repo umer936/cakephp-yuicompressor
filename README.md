@@ -7,13 +7,6 @@ Add to composer.json
 ```json
 {
     ...
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/umer936/cakephp-yuicompressor.git"
-        }
-    ],
-    ...
 
     "require-dev": {
         ...
@@ -22,10 +15,20 @@ Add to composer.json
     ...
     "scripts": {
         ...
-        "post-update-cmd": "CakephpAssetCompressYuicompressor\\Console\\Installer::postUpdate",
+        "post-install-cmd": [
+            ...
+            "@install-yuicompressor"
+        ],
+        "post-update-cmd": "@install-yuicompressor",
+        ...
+        "install-yuicompressor": "CakephpAssetCompressYuicompressor\\Console\\Installer::postUpdate",
         ...
     },
     ...
 }
 ```
 
+This makes it so it installs both on composer install and composer update. 
+
+TODO: 
+- In the future, this should check if the file exists and copy the file only if it does not. There's no need to overwrite the yui file if it already exists. 
